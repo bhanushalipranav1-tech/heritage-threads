@@ -8,11 +8,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { useCart } from "@/lib/cart";
 import { formatPrice, getProduct } from "@/lib/products";
 
-type ContactSearch = { inquiry?: string };
+type ContactSearch = { inquiry?: string | undefined };
 
 export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>): ContactSearch => ({
-    inquiry: typeof search.inquiry === "string" ? search.inquiry : undefined,
+    inquiry: typeof search["inquiry"] === "string" ? (search["inquiry"] as string) : undefined,
   }),
   head: () => ({
     meta: [

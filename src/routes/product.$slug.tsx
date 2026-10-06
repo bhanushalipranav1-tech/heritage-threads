@@ -30,7 +30,7 @@ function ProductPage() {
   const product = Route.useLoaderData();
   const { add } = useCart();
   const [size, setSize] = useState<string | null>(
-    product.sizes.length === 1 ? product.sizes[0] : null,
+    product.sizes.length === 1 ? (product.sizes[0] ?? null) : null,
   );
   const [error, setError] = useState(false);
 
