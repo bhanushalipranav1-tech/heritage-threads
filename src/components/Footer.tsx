@@ -18,7 +18,7 @@ export function Footer() {
           <p className="text-sm font-semibold tracking-wide uppercase opacity-70">Explore</p>
           <div className="mt-3 flex flex-col gap-2 text-sm">
             <Link to="/shop" className="opacity-80 transition-opacity hover:opacity-100">Shop all</Link>
-            <Link to="/about" className="opacity-80 transition-opacity hover:opacity-100">Our craft</Link>
+            <Link to="/about" className="opacity-80 transition-opacity hover:opacity-100">About us</Link>
             <Link to="/contact" className="opacity-80 transition-opacity hover:opacity-100">Contact</Link>
           </div>
         </div>
