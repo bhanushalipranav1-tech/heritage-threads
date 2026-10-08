@@ -18,7 +18,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link to="/" className="font-display text-2xl font-semibold tracking-tight">
-          Kavya<span className="text-primary">.</span>
+          Mrida<span className="text-primary">.</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

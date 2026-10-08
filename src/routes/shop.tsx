@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
-      { title: "Shop — Kavya" },
+      { title: "Shop — Mrida" },
       { name: "description", content: "Browse handloom shirts, embroidered jackets, hoodies, skirts and accessories — traditional craft in modern silhouettes." },
-      { property: "og:title", content: "Shop — Kavya" },
+      { property: "og:title", content: "Shop — Mrida" },
       { property: "og:description", content: "Browse handloom shirts, embroidered jackets, hoodies, skirts and accessories." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

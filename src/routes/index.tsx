@@ -8,9 +8,9 @@ import heroImg from "@/assets/hero.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kavya — Traditional Craft, New Generation" },
+      { title: "Mrida — Traditional Craft, New Generation" },
       { name: "description", content: "Handloom clothing and hand-embroidered streetwear made by artisan hands in small batches. Traditional artwork, modern silhouettes." },
-      { property: "og:title", content: "Kavya — Traditional Craft, New Generation" },
+      { property: "og:title", content: "Mrida — Traditional Craft, New Generation" },
       { property: "og:description", content: "Handloom clothing and hand-embroidered streetwear made by artisan hands in small batches." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
