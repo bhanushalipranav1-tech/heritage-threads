@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Landmark, Flower2, Shirt, Sprout } from "lucide-react";
-import heritageAsset from "@/assets/about-heritage.asset.json";
+import heritageAsset from "@/assets/about-artwork.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
