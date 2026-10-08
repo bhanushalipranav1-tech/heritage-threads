@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the brand story on the existing `/about` route and link it from shared navigation; this preserves established URLs while providing a dedicated About Us page.
+- Store uploaded artwork as asset pointers and render page copy as HTML; this keeps text accessible and adaptable to different screens.
