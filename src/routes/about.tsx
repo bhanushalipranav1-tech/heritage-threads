@@ -5,10 +5,10 @@ import heroImg from "@/assets/hero.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Our Craft — Kavya" },
-      { name: "description", content: "How Kavya works with block printers, weavers and embroiderers to bring heritage craft into modern wardrobes." },
-      { property: "og:title", content: "Our Craft — Kavya" },
-      { property: "og:description", content: "How Kavya works with block printers, weavers and embroiderers to bring heritage craft into modern wardrobes." },
+      { title: "Our Craft — Mrida" },
+      { name: "description", content: "How Mrida works with block printers, weavers and embroiderers to bring heritage craft into modern wardrobes." },
+      { property: "og:title", content: "Our Craft — Mrida" },
+      { property: "og:description", content: "How Mrida works with block printers, weavers and embroiderers to bring heritage craft into modern wardrobes." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -37,7 +37,7 @@ function About() {
 
       <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
         <p>
-          Kavya started with a simple frustration: the most beautiful textiles in
+          Mrida started with a simple frustration: the most beautiful textiles in
           the world were being made for occasions, not for life. We wanted to wear
           block prints and hand embroidery on a Tuesday, not just at weddings.
         </p>

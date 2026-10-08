@@ -16,10 +16,10 @@ export const Route = createFileRoute("/contact")({
   }),
   head: () => ({
     meta: [
-      { title: "Contact — Kavya" },
-      { name: "description", content: "Place an order inquiry or get in touch with the Kavya team — we confirm every order personally." },
-      { property: "og:title", content: "Contact — Kavya" },
-      { property: "og:description", content: "Place an order inquiry or get in touch with the Kavya team." },
+      { title: "Contact — Mrida" },
+      { name: "description", content: "Place an order inquiry or get in touch with the Mrida team — we confirm every order personally." },
+      { property: "og:title", content: "Contact — Mrida" },
+      { property: "og:description", content: "Place an order inquiry or get in touch with the Mrida team." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

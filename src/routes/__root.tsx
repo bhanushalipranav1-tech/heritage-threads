@@ -83,10 +83,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kavya — Traditional Craft, New Generation" },
+      { title: "Mrida — Traditional Craft, New Generation" },
       { name: "description", content: "Handloom clothing and hand-embroidered streetwear made by artisan hands in small batches." },
-      { name: "author", content: "Kavya Collective" },
-      { property: "og:title", content: "Kavya — Traditional Craft, New Generation" },
+      { name: "author", content: "Mrida Collective" },
+      { property: "og:title", content: "Mrida — Traditional Craft, New Generation" },
       { property: "og:description", content: "Handloom clothing and hand-embroidered streetwear made by artisan hands in small batches." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
