@@ -4,6 +4,9 @@ import trousersImg from "@/assets/product-trousers.jpg";
 import hoodieImg from "@/assets/product-hoodie.jpg";
 import skirtImg from "@/assets/product-skirt.jpg";
 import toteImg from "@/assets/product-tote.jpg";
+import guitarAsset from "@/assets/divine-guitar-shirt.asset.json";
+import paisleyAsset from "@/assets/paisley-tee.asset.json";
+import kaliAsset from "@/assets/kali-tee.asset.json";
 
 export interface Product {
   slug: string;
@@ -20,9 +23,45 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    slug: "divine-guitar-shirt",
+    name: "Divine Guitar Shirt",
+    price: 899,
+    category: "Shirts",
+    craft: "Divine art, streetwear spirit",
+    description: "A beige short-sleeve shirt with a clean front and a statement back print combining divine-inspired artwork, sunglasses and an electric guitar.",
+    details: ["Beige colour", "Short sleeves", "Button-front silhouette", "Statement back print"],
+    image: guitarAsset.url,
+    sizes: ["S", "M", "L", "XL"],
+    badge: "New design",
+  },
+  {
+    slug: "heritage-paisley-tee",
+    name: "Heritage Paisley Tee",
+    price: 699,
+    category: "T-Shirts",
+    craft: "Traditional paisley, modern silhouette",
+    description: "A washed-charcoal tee with a plain front and an ornate gold-and-teal paisley back design, bringing heritage motifs into everyday style.",
+    details: ["Washed-charcoal look", "Round neckline", "Short sleeves", "Gold-and-teal back artwork"],
+    image: paisleyAsset.url,
+    sizes: ["S", "M", "L", "XL"],
+    badge: "New design",
+  },
+  {
+    slug: "kali-art-tee",
+    name: "Kali Art Tee",
+    price: 799,
+    category: "T-Shirts",
+    craft: "Divine strength, bold expression",
+    description: "A black graphic tee featuring Kali-inspired artwork, intricate ornamentation and striking red accents. A bold meeting of heritage and contemporary expression.",
+    details: ["Black colour", "Round neckline", "Short sleeves", "Kali-inspired front artwork"],
+    image: kaliAsset.url,
+    sizes: ["S", "M", "L", "XL"],
+    badge: "New design",
+  },
+  {
     slug: "madder-block-shirt",
     name: "Madder Block-Print Shirt",
-    price: 2499,
+    price: 749,
     category: "Shirts",
     craft: "Hand block-printed in Bagru",
     description:
@@ -35,7 +74,7 @@ export const products: Product[] = [
   {
     slug: "deccan-embroidered-jacket",
     name: "Deccan Embroidered Jacket",
-    price: 4999,
+    price: 999,
     category: "Jackets",
     craft: "Hand-embroidered collar",
     description:
@@ -48,7 +87,7 @@ export const products: Product[] = [
   {
     slug: "charcoal-border-trousers",
     name: "Charcoal Border Trousers",
-    price: 2899,
+    price: 799,
     category: "Trousers",
     craft: "Handloom woven border",
     description:
@@ -60,7 +99,7 @@ export const products: Product[] = [
   {
     slug: "phool-embroidered-hoodie",
     name: "Phool Embroidered Hoodie",
-    price: 3299,
+    price: 949,
     category: "Hoodies",
     craft: "Hand-embroidered motif",
     description:
@@ -73,7 +112,7 @@ export const products: Product[] = [
   {
     slug: "saffron-block-skirt",
     name: "Saffron Block-Print Skirt",
-    price: 2799,
+    price: 699,
     category: "Skirts",
     craft: "Hand block-printed",
     description:
@@ -85,7 +124,7 @@ export const products: Product[] = [
   {
     slug: "heera-woven-tote",
     name: "Heera Woven Tote",
-    price: 1499,
+    price: 500,
     category: "Accessories",
     craft: "Hand-crocheted weave",
     description:
