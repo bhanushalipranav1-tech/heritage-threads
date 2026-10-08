@@ -5,4 +5,4 @@
 - [x] Verify page rendering and consistent Mrida branding.
 - [x] Add the three supplied clothing designs to the collection.
 - [x] Set every product price between ₹500 and ₹1,000.
-- [ ] Verify pricing and the new product browsing-to-bag flow.
+- [x] Verify pricing and the new product browsing-to-bag flow.
