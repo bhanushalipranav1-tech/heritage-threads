@@ -40,7 +40,7 @@ export function CartDrawer() {
                       alt={p.name}
                       width={1024}
                       height={1280}
-                      className="h-24 w-20 rounded-lg object-cover"
+                      className="h-24 w-20 rounded-lg object-contain"
                     />
                     <div className="flex flex-1 flex-col">
                       <div className="flex items-start justify-between gap-2">
