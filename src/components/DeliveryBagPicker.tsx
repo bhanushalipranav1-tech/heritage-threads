@@ -16,6 +16,7 @@ export function DeliveryBagPicker() {
             key={bag.id}
             type="button"
             variant="outline"
+            aria-label={bag.name}
             aria-pressed={deliveryBag === bag.id}
             onClick={() => setDeliveryBag(bag.id)}
             className={cn(
