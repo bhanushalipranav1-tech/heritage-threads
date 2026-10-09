@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useCart } from "@/lib/cart";
 import { formatPrice, getProduct } from "@/lib/products";
+import { applyCoupon, isValidCoupon, COUPON_PERCENT } from "@/lib/coupon";
 
 type ContactSearch = { inquiry?: string | undefined };
 
@@ -51,11 +52,32 @@ function Contact() {
     isOrder ? `Hi! I'd like to order:\n\n${orderSummary}\n\nTotal: ${formatPrice(total)}` : "",
   );
   const [sent, setSent] = useState(false);
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [phone, setPhone] = useState("");
+  const [couponInput, setCouponInput] = useState("");
+  const [coupon, setCoupon] = useState("");
+  const finalTotal = applyCoupon(total, coupon);
+
+  const handleApply = () => {
+    if (isValidCoupon(couponInput)) {
+      setCoupon(couponInput);
+      toast.success(`Coupon applied — ${COUPON_PERCENT}% off!`);
+    } else {
+      setCoupon("");
+      toast.error("Invalid coupon code.");
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !message.trim()) {
       toast.error("Please fill in all fields.");
+      return;
+    }
+    if (isOrder && (!address.trim() || !city.trim() || !/^\d{6}$/.test(pincode.trim()) || !/^\d{10}$/.test(phone.trim()))) {
+      toast.error("Please enter a full delivery address, 6-digit pincode and 10-digit phone.");
       return;
     }
     // Showcase store: inquiry is confirmed locally; hook up email/CRM later.
@@ -108,6 +130,42 @@ function Contact() {
               placeholder="How can we help?"
             />
           </div>
+          {isOrder && (
+            <>
+              <div className="space-y-2">
+                <Label htmlFor="address">Delivery address</Label>
+                <Textarea id="address" rows={3} maxLength={300} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="House no., street, area" />
+              </div>
+              <div className="grid gap-5 sm:grid-cols-3">
+                <div className="space-y-2">
+                  <Label htmlFor="city">City</Label>
+                  <Input id="city" maxLength={60} value={city} onChange={(e) => setCity(e.target.value)} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="pincode">Pincode</Label>
+                  <Input id="pincode" inputMode="numeric" maxLength={6} value={pincode} onChange={(e) => setPincode(e.target.value)} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone</Label>
+                  <Input id="phone" inputMode="numeric" maxLength={10} value={phone} onChange={(e) => setPhone(e.target.value)} />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="coupon">Coupon code</Label>
+                <div className="flex gap-2">
+                  <Input id="coupon" maxLength={20} value={couponInput} onChange={(e) => setCouponInput(e.target.value)} placeholder="Enter code" />
+                  <Button type="button" variant="outline" onClick={handleApply}>Apply</Button>
+                </div>
+              </div>
+              <div className="rounded-2xl bg-linen p-5 text-sm space-y-1">
+                <div className="flex justify-between"><span>Subtotal</span><span>{formatPrice(total)}</span></div>
+                {coupon && (
+                  <div className="flex justify-between text-primary"><span>Discount ({COUPON_PERCENT}%)</span><span>−{formatPrice(total - finalTotal)}</span></div>
+                )}
+                <div className="flex justify-between font-semibold text-base pt-1"><span>Total</span><span>{formatPrice(finalTotal)}</span></div>
+              </div>
+            </>
+          )}
           <Button type="submit" size="lg" className="rounded-full">
             {isOrder ? "Send order inquiry" : "Send message"}
           </Button>
