@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useCart } from "@/lib/cart";
 import { formatPrice, getProduct } from "@/lib/products";
 import { applyCoupon, isValidCoupon, COUPON_PERCENT } from "@/lib/coupon";
+import { DeliveryBagPicker } from "@/components/DeliveryBagPicker";
+import { getDeliveryBag } from "@/lib/delivery-bags";
 
 type ContactSearch = { inquiry?: string | undefined };
 
@@ -30,7 +32,8 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const { inquiry } = Route.useSearch();
-  const { items, clear } = useCart();
+  const { items, clear, deliveryBag } = useCart();
+  const selectedBag = getDeliveryBag(deliveryBag);
   const isOrder = inquiry === "order" && items.length > 0;
 
   const orderSummary = items
@@ -78,6 +81,10 @@ function Contact() {
     }
     if (isOrder && (!address.trim() || !city.trim() || !/^\d{6}$/.test(pincode.trim()) || !/^\d{10}$/.test(phone.trim()))) {
       toast.error("Please enter a full delivery address, 6-digit pincode and 10-digit phone.");
+      return;
+    }
+    if (isOrder && !selectedBag) {
+      toast.error("Please choose a delivery bag.");
       return;
     }
     // Showcase store: inquiry is confirmed locally; hook up email/CRM later.
@@ -132,6 +139,7 @@ function Contact() {
           </div>
           {isOrder && (
             <>
+              <DeliveryBagPicker />
               <div className="space-y-2">
                 <Label htmlFor="address">Delivery address</Label>
                 <Textarea id="address" rows={3} maxLength={300} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="House no., street, area" />
@@ -158,6 +166,7 @@ function Contact() {
                 </div>
               </div>
               <div className="rounded-2xl bg-linen p-5 text-sm space-y-1">
+                {selectedBag && <div className="flex justify-between gap-4"><span>Delivery bag</span><span className="text-right">{selectedBag.name}</span></div>}
                 <div className="flex justify-between"><span>Subtotal</span><span>{formatPrice(total)}</span></div>
                 {coupon && (
                   <div className="flex justify-between text-primary"><span>Discount ({COUPON_PERCENT}%)</span><span>−{formatPrice(total - finalTotal)}</span></div>
