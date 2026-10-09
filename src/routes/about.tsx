@@ -5,10 +5,10 @@ import heritageAsset from "@/assets/about-artwork.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Mrida | Tradition Meets Today’s Style" },
-      { name: "description", content: "Discover Mrida: modern traditional clothing inspired by Indian architecture, divine themes and the richness of our heritage." },
-      { property: "og:title", content: "About Us — Mrida | Tradition Meets Today’s Style" },
-      { property: "og:description", content: "Timeless designs. Modern vibes. Rooted in our heritage. Discover the story behind Mrida." },
+      { title: "About Us — Maya | Tradition Meets Today’s Style" },
+      { name: "description", content: "Discover Maya: modern traditional clothing inspired by Indian architecture, divine themes and the richness of our heritage." },
+      { property: "og:title", content: "About Us — Maya | Tradition Meets Today’s Style" },
+      { property: "og:description", content: "Timeless designs. Modern vibes. Rooted in our heritage. Discover the story behind Maya." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -32,18 +32,18 @@ function About() {
             <p>About us</p><span className="h-px w-10 bg-primary/60" aria-hidden="true" />
           </div>
           <h1 className="font-display text-4xl leading-[1.12] font-medium md:text-5xl">
-            Mrida<span className="text-primary">.</span><br />
+            Maya<span className="text-primary">.</span><br />
             Where Tradition<br className="hidden lg:block" /> Meets Today’s Style
           </h1>
           <p className="mt-5 text-lg text-foreground">Timeless designs. Modern vibes. Rooted in our heritage.</p>
           <div className="mt-7 space-y-5 text-base leading-relaxed text-muted-foreground">
-            <p>At Mrida, we believe clothing is more than just what you wear — it’s a story, a culture, and a connection to something greater. Our mission is to bring together the richness of India’s timeless traditions with the energy and individuality of today’s generation.</p>
+            <p>At Maya, we believe clothing is more than just what you wear — it’s a story, a culture, and a connection to something greater. Our mission is to bring together the richness of India’s timeless traditions with the energy and individuality of today’s generation.</p>
             <p>We design trendy clothing for the modern generation, infused with traditional touches. From the grandeur of ancient architectural marvels to the divine elegance of Hindu gods, our collections are inspired by India’s rich heritage, reimagined for contemporary living.</p>
             <p>Each piece is a blend of culture, comfort and style — crafted for those who appreciate tradition but love to express themselves in today’s world. Our designs feature intricate motifs, temple architecture elements, and divine symbolism, bringing a sense of history, spirituality and uniqueness to your wardrobe.</p>
             <p>We are not just a clothing brand; we are a celebration of India’s past, present and future — stitched together for you.</p>
           </div>
         </div>
-        <img src={heritageAsset.url} alt="Mrida heritage inspiration: a temple-print kurta and burgundy sari, with Indian temple architecture and divine artwork" width={411} height={561} className="w-full object-contain" fetchPriority="high" />
+        <img src={heritageAsset.url} alt="Maya heritage inspiration: a temple-print kurta and burgundy sari, with Indian temple architecture and divine artwork" width={411} height={561} className="w-full object-contain" fetchPriority="high" />
       </section>
       <section aria-label="Our inspirations" className="mt-10 grid grid-cols-2 gap-x-6 gap-y-9 md:mt-9 md:grid-cols-4 md:gap-0">
         {values.map(({ icon: Icon, title, description }) => (
