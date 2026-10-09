@@ -7,3 +7,5 @@
 - [x] Set every product price between ₹500 and ₹1,000.
 - [x] Verify pricing and the new product browsing-to-bag flow.
 - [x] Rename the brand to Maya throughout the website and verify all pages.
+- [x] Add both uploaded delivery bag photos and a single bag choice in the cart.
+- [x] Carry the bag choice into the order inquiry and verify the flow.

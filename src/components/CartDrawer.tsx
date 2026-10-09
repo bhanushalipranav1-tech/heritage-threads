@@ -4,9 +4,10 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sh
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart";
 import { formatPrice, getProduct } from "@/lib/products";
+import { DeliveryBagPicker } from "@/components/DeliveryBagPicker";
 
 export function CartDrawer() {
-  const { items, open, setOpen, setQty, remove } = useCart();
+  const { items, open, setOpen, setQty, remove, deliveryBag } = useCart();
 
   const total = items.reduce((sum, item) => {
     const p = getProduct(item.slug);
@@ -72,6 +73,9 @@ export function CartDrawer() {
                   </div>
                 );
               })}
+              <div className="border-t border-border pt-4">
+                <DeliveryBagPicker />
+              </div>
             </div>
 
             <div className="space-y-3 border-t border-border pt-4">
@@ -79,11 +83,11 @@ export function CartDrawer() {
                 <p className="text-sm text-muted-foreground">Subtotal</p>
                 <p className="font-display text-lg font-semibold">{formatPrice(total)}</p>
               </div>
-              <Button asChild className="w-full" size="lg">
+              {deliveryBag ? <Button asChild className="w-full" size="lg">
                 <Link to="/contact" search={{ inquiry: "order" }} onClick={() => setOpen(false)}>
                   Place order inquiry
                 </Link>
-              </Button>
+              </Button> : <Button disabled className="w-full" size="lg">Choose a delivery bag to continue</Button>}
               <p className="text-center text-xs text-muted-foreground">
                 We confirm every order personally before payment — no card needed yet.
               </p>

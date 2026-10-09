@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import type { DeliveryBagId } from "@/lib/delivery-bags";
 
 export interface CartItem {
   slug: string;
@@ -15,6 +16,8 @@ interface CartContextValue {
   count: number;
   open: boolean;
   setOpen: (open: boolean) => void;
+  deliveryBag: DeliveryBagId | null;
+  setDeliveryBag: (bag: DeliveryBagId) => void;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -24,6 +27,7 @@ const STORAGE_KEY = "mrida-cart";
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [open, setOpen] = useState(false);
+  const [deliveryBag, setDeliveryBag] = useState<DeliveryBagId | null>(null);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -63,11 +67,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  const clear = () => setItems([]);
+  const clear = () => {
+    setItems([]);
+    setDeliveryBag(null);
+  };
   const count = items.reduce((n, i) => n + i.qty, 0);
 
   return (
-    <CartContext.Provider value={{ items, add, remove, setQty, clear, count, open, setOpen }}>
+    <CartContext.Provider value={{ items, add, remove, setQty, clear, count, open, setOpen, deliveryBag, setDeliveryBag }}>
       {children}
     </CartContext.Provider>
   );
